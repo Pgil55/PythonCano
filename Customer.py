@@ -1,36 +1,37 @@
 class Customer:
-    headings = ['ID','Name','Bill Address','Phone','Email','Pos']
+    headings = ['ID', 'Name', 'Color', 'Mode', 'Type', 'Pos']
     fields = {
-        '-ID-': 'Customer ID:',
-        '-Name-': 'Customer Name:',
-        '-Bill-': 'Billing Address:',
-        '-Phone-': 'Phone:',
-        '-Email-': 'Email:',
+        '-ID-': 'Game ID:',
+        '-Name-': 'Game Name:',
+        '-Color-': 'Game Color:',  # Cambio de 'Class' a 'Color'
+        '-Mode-': 'Game Mode:',
+        '-Type-': 'Game Type:',
         '-PosFile-': 'Position into File'
     }
 
-    # El método __init__ es llamado al crear el objeto
-    def __init__(self, ID, name, bill, phone, email,posFile):
-        # Atributos de instancia
+    def __init__(self, ID, name, color, mode, type, posFile):
         self.ID = ID
         self.name = name
-        self.bill = bill
-        self.phone = phone
-        self.email = email
+        self.color = color  # Cambio de 'class_' a 'color'
+        self.mode = mode
+        self.type = type
         self.posFile = posFile
         self.erased = False
 
     def __eq__(self, oC):
-        return oC.posFile==self.posFile
+        return oC.posFile == self.posFile
 
     def __str__(self):
-        return str(self.ID)+str(self.name)+str(self.bill)+str(self.phone)+str(self.email)+str(self.posFile)
-    def customerinPos(self,pos):
-        return self.posFile==pos
+        return f"{self.ID} {self.name} {self.color} {self.mode} {self.type} {self.posFile}"
 
-    def setCustomer(self,name, bill, phone, email):
+    def __repr__(self):
+        return f"Customer(ID={self.ID}, name={self.name}, color={self.color}, mode={self.mode}, cust_type={self.type}, posFile={self.posFile})"
+
+    def customerinPos(self, pos):
+        return str(self.posFile) == str(pos)
+
+    def setCustomer(self, name, color, mode, type):  # Cambio de 'class_' a 'color'
         self.name = name
-        self.bill = bill
-        self.phone = phone
-        self.email = email
-
+        self.color = color  # Cambio de 'class_' a 'color'
+        self.mode = mode
+        self.type = type
