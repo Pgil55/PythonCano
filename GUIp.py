@@ -115,12 +115,12 @@ def interfaz():
                 updateCustomer(lCustomer, rowToUpdate, int(values['-PosFile-']))
                 window['-Table-'].update(table_data)
                 window['-ID-'].update(disabled=False)
-                sg.popup("Customer with ID: " + values['-ID-'] + " has been modified", title="Alert")
+                sg.popup("Game with ID: " + values['-ID-'] + " has been modified", title="Alert")
 
         if event == 'Purge':
             purgue_data(fCustomer)
             window['-ID-'].update(disabled=False)
-            sg.popup("Deleted customers has been purged.", title="Alert")
+            sg.popup("Deleted game has been purged.", title="Alert")
 
         if isinstance(event, tuple):
             if event[0] == '-Table-':
